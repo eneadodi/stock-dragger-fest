@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Stock, RankSlot } from "@/types/stock";
 import StockCard from "@/components/StockCard";
@@ -133,7 +132,7 @@ const Index = () => {
     setAvailableStocks(newAvailableStocks);
   };
 
-  const handleTimeframeChange = (stock: Stock, timeframe: "1D" | "1W" | "1M" | "6M" | "1Y") => {
+  const handleTimeframeChange = (stock: Stock, timeframe: "1D" | "1W" | "1M" | "6M" | "1Y" | "5Y") => {
     const newRankSlots = rankSlots.map(slot => {
       if (slot.stock?.ticker === stock.ticker) {
         return {
