@@ -9,35 +9,35 @@ const MOCK_STOCKS: Stock[] = [
     ticker: "AAPL",
     name: "Apple Inc.",
     emoji: "🍎",
-    changes: { "1D": 2.5, "1W": -1.2, "1M": 5.8, "6M": 15.3, "1Y": 25.7 },
+    changes: { "1D": 2.5, "1W": -1.2, "1M": 5.8, "6M": 15.3, "1Y": 25.7, "5Y": 270.5 },
     selectedTimeframe: "1D"
   },
   {
     ticker: "TSLA",
     name: "Tesla, Inc.",
     emoji: "🚗",
-    changes: { "1D": -1.8, "1W": 3.4, "1M": -2.1, "6M": 8.9, "1Y": 12.4 },
+    changes: { "1D": -1.8, "1W": 3.4, "1M": -2.1, "6M": 8.9, "1Y": 12.4, "5Y": 940.2 },
     selectedTimeframe: "1D"
   },
   {
     ticker: "MSFT",
     name: "Microsoft Corporation",
     emoji: "💻",
-    changes: { "1D": 1.7, "1W": 4.2, "1M": 7.5, "6M": 22.1, "1Y": 45.2 },
+    changes: { "1D": 1.7, "1W": 4.2, "1M": 7.5, "6M": 22.1, "1Y": 45.2, "5Y": 320.8 },
     selectedTimeframe: "1D"
   },
   {
     ticker: "AMZN",
     name: "Amazon.com, Inc.",
     emoji: "📦",
-    changes: { "1D": 0.9, "1W": 2.8, "1M": 6.3, "6M": 18.7, "1Y": 32.1 },
+    changes: { "1D": 0.9, "1W": 2.8, "1M": 6.3, "6M": 18.7, "1Y": 32.1, "5Y": 180.4 },
     selectedTimeframe: "1D"
   },
   {
     ticker: "GOOGL",
     name: "Alphabet Inc.",
     emoji: "🔍",
-    changes: { "1D": 1.2, "1W": 3.1, "1M": 4.8, "6M": 16.4, "1Y": 28.9 },
+    changes: { "1D": 1.2, "1W": 3.1, "1M": 4.8, "6M": 16.4, "1Y": 28.9, "5Y": 150.6 },
     selectedTimeframe: "1D"
   }
 ];

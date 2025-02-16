@@ -9,8 +9,9 @@ export interface Stock {
     "1M": number;
     "6M": number;
     "1Y": number;
+    "5Y": number;
   };
-  selectedTimeframe: "1D" | "1W" | "1M" | "6M" | "1Y";
+  selectedTimeframe: "1D" | "1W" | "1M" | "6M" | "1Y" | "5Y";
 }
 
 export interface RankSlot {
