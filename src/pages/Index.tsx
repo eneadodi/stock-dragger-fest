@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Stock, RankSlot } from "@/types/stock";
 import StockCard from "@/components/StockCard";
@@ -132,7 +133,7 @@ const Index = () => {
     setAvailableStocks(newAvailableStocks);
   };
 
-  const handleTimeframeChange = (stock: Stock, timeframe: "1D" | "1W" | "1M" | "6M" | "1Y" | "5Y") => {
+  const handleTimeframeChange = (stock: Stock, timeframe: "1D" | "1W" | "1M" | "6M" | "1Y") => {
     const newRankSlots = rankSlots.map(slot => {
       if (slot.stock?.ticker === stock.ticker) {
         return {
@@ -195,13 +196,10 @@ const Index = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
           {/* Rank Slots */}
-          <div className="space-y-6 md:col-span-2">
+          <div className="space-y-3 md:col-span-2">
             {rankSlots.map((slot, index) => (
-              <div key={index} className="group relative pl-10">
-                <span className="absolute left-0 top-1/2 -translate-y-1/2 text-text-header font-bold text-2xl">
-                  {index + 1}.
-                </span>
-                <div className="absolute inset-0 left-8 bg-primary/5 rounded-lg -z-10 group-hover:bg-primary/10 transition-colors"></div>
+              <div key={index} className="group relative">
+                <div className="absolute inset-0 bg-primary/5 rounded-lg -z-10 group-hover:bg-primary/10 transition-colors"></div>
                 <div
                   className="relative bg-card/90 backdrop-blur-sm rounded-lg p-3 border border-card-border transition-all duration-300"
                   data-drop-zone
@@ -210,9 +208,12 @@ const Index = () => {
                   onDrop={(e) => handleDrop(e, index)}
                 >
                   <div className="flex items-center">
+                    <span className="text-primary font-semibold text-sm">
+                      {index + 1}.
+                    </span>
                     {slot.stock ? (
                       <div
-                        className="flex items-center gap-2 w-full"
+                        className="flex items-center gap-2 w-full ml-2"
                         draggable
                         onDragStart={(e) => handleDragStart(e, slot.stock!, index)}
                         onDragEnd={handleDragEnd}
@@ -225,7 +226,7 @@ const Index = () => {
                         />
                       </div>
                     ) : (
-                      <span className="text-card-text text-sm">
+                      <span className="text-card-text text-sm ml-2">
                         DROP STOCK HERE
                       </span>
                     )}
