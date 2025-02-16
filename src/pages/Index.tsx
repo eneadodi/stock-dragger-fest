@@ -182,9 +182,12 @@ const Index = () => {
               👥 {totalVotes.toLocaleString()}
             </span>
           </div>
-          <h1 className="text-xl md:text-2xl font-bold text-text-header">
-            WEEK 23 STOCK RANKING
+          <h1 className="text-xl md:text-2xl font-bold text-text-header mb-1">
+            Rank This Week's Chosen Stocks
           </h1>
+          <p className="text-xs text-card-text">
+            And Contribute to this Community's Wisdom 😊
+          </p>
         </div>
       </header>
 
@@ -208,12 +211,12 @@ const Index = () => {
                   onDrop={(e) => handleDrop(e, index)}
                 >
                   <div className="flex items-center">
-                    <span className="text-primary font-semibold text-sm">
+                    <span className="text-text-header font-bold text-2xl mr-3">
                       {index + 1}.
                     </span>
                     {slot.stock ? (
                       <div
-                        className="flex items-center gap-2 w-full ml-2"
+                        className="flex items-center gap-2 w-full"
                         draggable
                         onDragStart={(e) => handleDragStart(e, slot.stock!, index)}
                         onDragEnd={handleDragEnd}
@@ -226,7 +229,7 @@ const Index = () => {
                         />
                       </div>
                     ) : (
-                      <span className="text-card-text text-sm ml-2">
+                      <span className="text-card-text text-sm">
                         DROP STOCK HERE
                       </span>
                     )}
