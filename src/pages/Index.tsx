@@ -51,7 +51,6 @@ const Index = () => {
   const [totalVotes, setTotalVotes] = useState(1234);
 
   useEffect(() => {
-    // Update time remaining
     const interval = setInterval(() => {
       const now = new Date();
       const end = new Date(now);
@@ -113,13 +112,11 @@ const Index = () => {
     const newAvailableStocks = [...availableStocks];
 
     if (typeof fromSlot === 'number') {
-      // Moving between rank slots
       newRankSlots[fromSlot] = { stock: null };
       if (newRankSlots[targetIndex].stock) {
         newRankSlots[fromSlot] = newRankSlots[targetIndex];
       }
     } else {
-      // Moving from available stocks
       if (newRankSlots[targetIndex].stock) {
         newAvailableStocks.push(newRankSlots[targetIndex].stock!);
       }
@@ -172,7 +169,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen p-2 md:p-4">
-      {/* Header */}
       <header className="max-w-7xl mx-auto mb-4 text-center">
         <div className="bg-card/50 backdrop-blur-sm rounded-xl p-3 md:p-4 shadow-lg border border-card-border animate-fade-in">
           <div className="flex items-center justify-center gap-4 mb-2 text-text-header">
@@ -190,14 +186,12 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="max-w-7xl mx-auto animate-slide-in">
         <div className="text-center mb-4 text-text-header">
           <p className="text-sm">Drag stocks to rank (1 = Most Bullish)</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-          {/* Rank Slots */}
           <div className="space-y-3 md:col-span-2">
             {rankSlots.map((slot, index) => (
               <div key={index} className="group relative">
@@ -238,7 +232,6 @@ const Index = () => {
             ))}
           </div>
 
-          {/* Available Stocks */}
           <div className="bg-card/90 backdrop-blur-sm rounded-lg p-4 border border-card-border">
             <h2 className="text-card-text-header mb-3 font-semibold text-sm">
               Available Stocks
@@ -253,7 +246,15 @@ const Index = () => {
                   onDragEnd={handleDragEnd}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-xl">{stock.emoji}</span>
+                    <img 
+                      src={`https://images.financialmodelingprep.com/symbol/${stock.ticker}.png`}
+                      alt={stock.name}
+                      className="w-8 h-8 object-contain"
+                      onError={(e) => {
+                        e.currentTarget.src = stock.emoji;
+                        e.currentTarget.className = "text-xl";
+                      }}
+                    />
                     <div className="flex-1">
                       <span className="text-card-text-header font-semibold text-sm">
                         {stock.ticker}
@@ -269,7 +270,6 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Action Buttons */}
         <div className="fixed bottom-0 left-0 right-0 md:relative mt-6 p-3 md:p-0">
           <div className="flex gap-3 justify-center max-w-7xl mx-auto">
             <button
