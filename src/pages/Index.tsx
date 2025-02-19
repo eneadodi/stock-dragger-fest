@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Stock, RankSlot } from "@/types/stock";
 import StockCard from "@/components/StockCard";
@@ -169,7 +170,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen p-2 md:p-4">
-      <header className="max-w-7xl mx-auto mb-4 text-center">
+      <header className="max-w-7xl mx-auto mb-4 text-center mt-8">
         <div className="bg-card/50 backdrop-blur-sm rounded-xl p-3 md:p-4 shadow-lg border border-card-border animate-fade-in">
           <div className="flex items-center justify-center gap-4 mb-2 text-text-header">
             <span className="text-xs md:text-sm">⏰ {timeRemaining}</span>
