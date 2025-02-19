@@ -17,25 +17,26 @@ const StockCard = ({ stock, onTimeframeChange, isDragging }: StockCardProps) => 
 
   return (
     <div className={`flex-1 ${isDragging ? 'dragging' : ''}`}>
-      <div className="flex items-center gap-2">
-        <img 
-          src={`https://images.financialmodelingprep.com/symbol/${stock.ticker}.png`}
-          alt={stock.name}
-          className="w-8 h-8 object-contain"
-          onError={(e) => {
-            e.currentTarget.src = stock.emoji;
-            e.currentTarget.className = "text-xl";
-          }}
-        />
-        <div>
-          <span className="font-semibold text-card-text-header text-sm">
-            {stock.ticker}
-          </span>
-          <span className="text-card-text text-xs ml-1">{stock.name}</span>
+      <div className="flex items-center gap-4 w-full">
+        <div className="flex items-center gap-2">
+          <img 
+            src={`https://images.financialmodelingprep.com/symbol/${stock.ticker}.png`}
+            alt={stock.name}
+            className="w-8 h-8 object-contain"
+            onError={(e) => {
+              e.currentTarget.src = stock.emoji;
+              e.currentTarget.className = "text-xl";
+            }}
+          />
+          <div>
+            <span className="font-semibold text-card-text-header text-sm">
+              {stock.ticker}
+            </span>
+            <span className="text-card-text text-xs ml-1">{stock.name}</span>
+          </div>
         </div>
-      </div>
-      <div className="mt-3 flex items-center gap-3">
-        <div className="flex-1 text-center">
+
+        <div className="flex-shrink-0">
           <div
             className={`text-lg font-medium ${
               stock.changes[stock.selectedTimeframe] < 0 ? 'text-tertiary' : 'text-primary'
@@ -44,7 +45,8 @@ const StockCard = ({ stock, onTimeframeChange, isDragging }: StockCardProps) => 
             {formatChange(stock.changes[stock.selectedTimeframe])}
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-1 w-40">
+
+        <div className="flex-1 grid grid-cols-6 gap-1">
           {timeframes.map((timeframe) => (
             <button
               key={timeframe}
@@ -59,7 +61,8 @@ const StockCard = ({ stock, onTimeframeChange, isDragging }: StockCardProps) => 
             </button>
           ))}
         </div>
-        <div className="pl-3 border-l border-card-border">
+
+        <div className="border-l border-card-border pl-3">
           <div className="cursor-move text-card-text opacity-50 hover:opacity-100 transition-opacity">
             <MoveVertical size={20} />
           </div>
