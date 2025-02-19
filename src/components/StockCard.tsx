@@ -58,11 +58,11 @@ const StockCard = ({ stock, onTimeframeChange, isDragging }: StockCardProps) => 
         </div>
 
         {/* Timeframe Buttons Section */}
-        <div className="w-full md:w-[280px] grid grid-cols-3 grid-rows-2 gap-2 md:ml-8">
+        <div className="w-full md:w-[280px] grid grid-cols-3 grid-rows-2 gap-1.5 md:gap-2 md:ml-8">
           {timeframes.map((timeframe) => (
             <button
               key={timeframe}
-              className={`px-2 md:px-3 py-1.5 rounded text-xs border border-card-border transition-colors w-full ${
+              className={`px-1 md:px-3 py-1 md:py-1.5 rounded text-xs border border-card-border transition-colors ${
                 stock.selectedTimeframe === timeframe
                   ? 'bg-card-field text-card-text-header'
                   : 'text-card-text hover:bg-card-field/50'
