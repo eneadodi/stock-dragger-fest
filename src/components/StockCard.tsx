@@ -18,7 +18,8 @@ const StockCard = ({ stock, onTimeframeChange, isDragging }: StockCardProps) => 
   return (
     <div className={`flex-1 ${isDragging ? 'dragging' : ''}`}>
       <div className="flex items-center gap-4 w-full">
-        <div className="flex items-center gap-2">
+        {/* Company Info Section - Fixed width */}
+        <div className="flex items-center gap-2 w-[250px] flex-shrink-0">
           <img 
             src={`https://images.financialmodelingprep.com/symbol/${stock.ticker}.png`}
             alt={stock.name}
@@ -28,15 +29,18 @@ const StockCard = ({ stock, onTimeframeChange, isDragging }: StockCardProps) => 
               e.currentTarget.className = "text-xl";
             }}
           />
-          <div>
-            <span className="font-semibold text-card-text-header text-sm">
+          <div className="min-w-0">
+            <span className="font-semibold text-card-text-header text-sm block">
               {stock.ticker}
             </span>
-            <span className="text-card-text text-xs ml-1">{stock.name}</span>
+            <span className="text-card-text text-xs block truncate">
+              {stock.name}
+            </span>
           </div>
         </div>
 
-        <div className="flex-shrink-0">
+        {/* Percentage Section - Fixed width */}
+        <div className="w-[120px] flex-shrink-0 text-center">
           <div
             className={`text-lg font-medium ${
               stock.changes[stock.selectedTimeframe] < 0 ? 'text-tertiary' : 'text-primary'
@@ -46,7 +50,8 @@ const StockCard = ({ stock, onTimeframeChange, isDragging }: StockCardProps) => 
           </div>
         </div>
 
-        <div className="flex-1 grid grid-cols-6 gap-1">
+        {/* Timeframe Buttons Section - Fixed width */}
+        <div className="w-[180px] grid grid-cols-2 gap-1">
           {timeframes.map((timeframe) => (
             <button
               key={timeframe}
@@ -62,7 +67,8 @@ const StockCard = ({ stock, onTimeframeChange, isDragging }: StockCardProps) => 
           ))}
         </div>
 
-        <div className="border-l border-card-border pl-3">
+        {/* Drag Handle */}
+        <div className="border-l border-card-border pl-3 ml-auto">
           <div className="cursor-move text-card-text opacity-50 hover:opacity-100 transition-opacity">
             <MoveVertical size={20} />
           </div>
