@@ -42,7 +42,7 @@ const StockCard = ({ stock, onTimeframeChange, isDragging }: StockCardProps) => 
         {/* Percentage Section - Fixed width */}
         <div className="w-[120px] flex-shrink-0 text-center">
           <div
-            className={`text-3xl font-bold ${
+            className={`text-2xl font-bold ${
               stock.changes[stock.selectedTimeframe] < 0 ? 'text-tertiary' : 'text-primary'
             }`}
           >
@@ -51,7 +51,7 @@ const StockCard = ({ stock, onTimeframeChange, isDragging }: StockCardProps) => 
         </div>
 
         {/* Timeframe Buttons Section - Fixed width */}
-        <div className="w-[180px] grid grid-cols-2 gap-2 justify-items-end">
+        <div className="w-[180px] grid grid-cols-2 gap-2 ml-8">
           {timeframes.map((timeframe) => (
             <button
               key={timeframe}
