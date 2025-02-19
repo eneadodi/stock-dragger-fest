@@ -43,7 +43,7 @@ const StockCard = ({ stock, onTimeframeChange, isDragging }: StockCardProps) => 
         <div className="w-[120px] flex-shrink-0 text-center">
           <div
             className={`text-2xl font-bold ${
-              stock.changes[stock.selectedTimeframe] < 0 ? 'text-tertiary' : 'text-primary'
+              stock.changes[stock.selectedTimeframe] < 0 ? 'text-tertiary' : 'text-amber-500'
             }`}
           >
             {formatChange(stock.changes[stock.selectedTimeframe])}
@@ -51,11 +51,11 @@ const StockCard = ({ stock, onTimeframeChange, isDragging }: StockCardProps) => 
         </div>
 
         {/* Timeframe Buttons Section - Fixed width */}
-        <div className="w-[180px] grid grid-cols-2 gap-2 ml-8">
+        <div className="w-[280px] grid grid-cols-3 grid-rows-2 gap-2 ml-8">
           {timeframes.map((timeframe) => (
             <button
               key={timeframe}
-              className={`px-3 py-1.5 rounded text-xs border border-card-border transition-colors w-[80px] ${
+              className={`px-3 py-1.5 rounded text-xs border border-card-border transition-colors w-full ${
                 stock.selectedTimeframe === timeframe
                   ? 'bg-card-field text-card-text-header'
                   : 'text-card-text hover:bg-card-field/50'
